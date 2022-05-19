@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { heroImages } from '../../helpers/heroImages';
 import { getHeroById } from '../../selectors/getHeroById';
-
+//import batman from '../../assets/heroes/dc-batman.jpg'; //recurso estatico
+//const heroImages = require.context('../../assets/heroes', true);
 
 export const HeroScreen = () => {
 
@@ -23,7 +25,7 @@ export const HeroScreen = () => {
         characters
     } = hero;
 
-    const imgPath = `/assets/${id}.jpg`;
+    //const imgPath = `/assets/heroes/${id}.jpg`;
 
     const handleReturn = () => {
         navigate( -1 ); //Regresa a la pagina anterior
@@ -34,7 +36,8 @@ export const HeroScreen = () => {
         <div className="row mt-5">
             <div className="col-4">
                 <img
-                    src={ imgPath }
+                    //src={ batman } import
+                    src={ heroImages(`./${id}.jpg`) }
                     alt={ superhero }
                     className="img-thumbnail animate__animated animate__fadeInLeft"
                 />
